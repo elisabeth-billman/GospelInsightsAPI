@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
 	"github.com/stretchr/testify/assert"
 )
 
@@ -51,11 +50,6 @@ func TestHandleAsk(t *testing.T) {
 	assert.Equal(t, expectedResponseBody, respBody, "Unexpected response body")
 	assert.NotEqual(t, "bad response body", respBody, "Unexpected response body")
 	assert.NotContains(t, string(respBody), "unexpected substring", "Unexpected substring found in response body")
-
-
-
-
-
 	// Close the response body
 	resp.Body.Close()
 }

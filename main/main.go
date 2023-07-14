@@ -17,6 +17,7 @@ func main() {
 	r.Use(corsMiddleware)
 
 	// Define your API routes and handlers
+	// HandleFunc registers a new route with a matcher for the URL path.
 	r.HandleFunc("/ask", handleAsk)
 
 	port := "8000"
@@ -26,6 +27,8 @@ func main() {
 
 // CORS middleware
 func corsMiddleware(next http.Handler) http.Handler {
+	// The HandlerFunc type is an adapter to allow the use of
+	// ordinary functions as HTTP handlers.
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Set CORS headers
 		w.Header().Set("Access-Control-Allow-Origin", "*")
